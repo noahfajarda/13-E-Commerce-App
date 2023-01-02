@@ -43,6 +43,16 @@ router.post("/", (req, res) => {
     // create a new tag
     Tag.create(req.body)
         .then((tag) => {
+            // if there's product tags, we need to create pairings to bulk create in the ProductTag model
+            if (req.body.products.length) {
+                const productsToBeAssigned = req.body.products;
+                const productTagIdArr = productsToBeAssigned.map((product) => {
+                    return { product_id: product.id, tag_id: req.body.id };
+                });
+                res.status(200).json(tag);
+                return ProductTag.bulkCreate(productTagIdArr);
+            }
+            // if no product tags, just respond
             res.status(200).json(tag);
         })
         .catch((err) => {
@@ -51,8 +61,25 @@ router.post("/", (req, res) => {
         });
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", async (req, res) => {
     // update a tag's name by its `id` value
+    try {
+        await Tag.update(
+            {
+                tag_name: req.body.tag_name,
+            },
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        );
+        res.status(200).json(
+            `Successfully updated tag with "tag_id": ${req.params.id}.`
+        );
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 router.delete("/:id", (req, res) => {
