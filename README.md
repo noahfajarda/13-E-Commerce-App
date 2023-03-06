@@ -7,3 +7,8 @@ This project is an attempt to create a program that will allow users to view & m
 # Walkthrough Demos
 
 [Walkthrough Videos](https://drive.google.com/drive/folders/1J5v4xtlsQn4HSlsJz_827rTB99-nVOS3?usp=sharing)
+
+https://user-images.githubusercontent.com/109319159/223219089-77d750e8-3273-457a-8b4e-2baf2de13631.mov
+https://user-images.githubusercontent.com/109319159/223219097-8e5c07d6-08a2-4c07-b2cb-977ccafa8a64.mov
+https://user-images.githubusercontent.com/109319159/223219118-ea55ab1f-bd12-4a30-8514-4110710906c4.mov
+https://user-images.githubusercontent.com/109319159/223219150-0d839ed0-8e46-4bc8-b6de-15c8eea5e161.mov
